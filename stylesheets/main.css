@@ -1,3 +1,8 @@
+/* BACKGROUND */
+body {
+    background-color: #696969;
+}
+
 /* BACKGROUND IMAGE */
 .logo {
     width: 100%;
@@ -19,7 +24,8 @@
 .title {
     font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
     color: rgb(56,93,139);
-    text-shadow: 1px 1px lightblue;
+    text-shadow: 1px 1px #bebebe;
+    font-size: 45px;
 }
 
 
@@ -35,6 +41,7 @@
     border-radius: 9px;
     border-width: 1px;
     border-color: slategray;
+    background-color: #bebebe;
     width: 90%;
     height: 30px;
     outline: none;
