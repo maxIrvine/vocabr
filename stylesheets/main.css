@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 40px;
 }
 
 .search-one {
@@ -31,7 +31,7 @@
     border-bottom-right-radius: 9px;
     height: 34px;
     margin-left: -50px;
-    background-color: rgb(56,93,139); /* #4286f4 */
+    background-color: rgb(56,93,139); 
     color: white;
     font-size: 13px;
     font-family: Helvetica, Arial, san-serif;
