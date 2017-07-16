@@ -1,6 +1,6 @@
 /* BACKGROUND */
 body {
-    background-color: #696969;
+    background-color: #bebebe;
 }
 
 /* LOGO */
@@ -30,7 +30,7 @@ body {
     border-radius: 9px;
     border-width: 1px;
     border-color: slategray;
-    background-color: #bebebe;
+    background-color: #d3d3d3;
     width: 80%;
     height: 30px;
     outline: none;
@@ -89,7 +89,7 @@ body {
     }
 }
 
-/* Browser */
+/* Browser Small */
 @media (min-width: 1100px) {
     /* LOGO */
     .logo {
@@ -112,5 +112,83 @@ body {
     /* DEFINITION */
     .definition {
         margin-top: 50px;
+    }
+}
+
+/* Browser Medium */
+@media (min-width: 1350px) {
+    /* LOGO */
+    .logo {
+        width: 400px;
+        height: 400px;
+        margin-top: -90px;
+        margin-left: -125px;
+    }
+
+    /* SEARCH BOX */
+    .searchbox-one {
+        margin-top: -235px;
+        margin-left: -220px;
+    }
+
+    .search-one {
+        width: 50%;
+    }
+
+    /* DEFINITION */
+    .definition {
+        margin-top: 65px;
+    }
+}
+
+/* Browser Large */
+@media (min-width: 1650px) {
+    /* LOGO */
+    .logo {
+        width: 450px;
+        height: 450px;
+        margin-top: -105px;
+        margin-left: -145px;
+    }
+
+    /* SEARCH BOX */
+    .searchbox-one {
+        margin-top: -255px;
+        margin-left: -480px;
+    }
+
+    .search-one {
+        width: 40%;
+    }
+
+    /* DEFINITION */
+    .definition {
+        margin-top: 70px;
+    }
+}
+
+/* Browser Extreme */
+@media (min-width: 2000px) {
+    /* LOGO */
+    .logo {
+        width: 500px;
+        height: 500px;
+        margin-top: -120px;
+        margin-left: -170px;
+    }
+
+    /* SEARCH BOX */
+    .searchbox-one {
+        margin-top: -280px;
+        margin-left: -720px;
+    }
+
+    .search-one {
+        width: 35%;
+    }
+
+    /* DEFINITION */
+    .definition {
+        margin-top: 80px;
     }
 }
