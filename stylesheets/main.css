@@ -7,3 +7,34 @@
     background-size: contain;
     background-position: center;
 }
+
+/* FIRST SEARCH BOX */
+.searchbox-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+}
+
+.search-one {
+    border-radius: 9px;
+    border-width: 1px;
+    border-color: slategray;
+    width: 400px;
+    height: 30px;
+    outline: none;
+    text-indent: 8px;
+}
+
+.submit-one {
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    height: 34px;
+    margin-left: -50px;
+    background-color: rgb(56,93,139); /* #4286f4 */
+    color: white;
+    font-size: 13px;
+    font-family: Helvetica, Arial, san-serif;
+    border: none;
+    outline: none;
+}
