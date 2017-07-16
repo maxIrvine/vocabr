@@ -93,7 +93,7 @@ body {
 
 /* iPad Pro */
 @media (min-width: 1024px) {
-      .logo {
+    .logo {
         height: 350px;
         margin-top: 70px;
         margin-bottom: 0px;
@@ -105,5 +105,55 @@ body {
 
     .search-one {
     width: 50%;
+    }
+}
+
+/* Browser Small */
+@media (min-width: 2000px) {
+    .logo {
+        height: 350px;
+        margin-top: 90px;
+        margin-bottom: 0px;
+    }
+
+    .title {
+        font-size: 140px;
+    }
+
+    .search-one {
+        width: 45%;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .submit-one {
+    height: 64px;
+    font-size: 20px;
+    }
+}
+
+/* Browser Medium */
+@media (min-width: 3000px) {
+    .logo {
+        height: 550px;
+        margin-top: 110px;
+        margin-bottom: 0px;
+    }
+
+    .title {
+        margin-top: 10px;
+        margin-bottom: 160px;
+        font-size: 160px;
+    }
+
+    .search-one {
+        width: 38%;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    .submit-one {
+        height: 74px;
+        font-size: 28px;
     }
 }
