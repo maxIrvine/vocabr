@@ -1,0 +1,18 @@
+/* BACKGROUND */
+body {
+    background-color: #696969;
+}
+
+/* LOGO */
+.logo-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; 
+}
+
+.logo {
+    width: 175px;
+    height: 175px;
+    margin-top: -40px;
+    margin-left: -55px;
+}
