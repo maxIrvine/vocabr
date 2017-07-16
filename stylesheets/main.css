@@ -1,6 +1,6 @@
 /* BACKGROUND */
 body {
-    background-color: #696969;
+    background-color: #bebebe;
 }
 
 /* BACKGROUND IMAGE */
@@ -24,7 +24,7 @@ body {
 .title {
     font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
     color: rgb(56,93,139);
-    text-shadow: 0px 1px #bebebe;
+    text-shadow: 1px 1px #d3d3d3;
     font-size: 45px;
 }
 
@@ -41,7 +41,7 @@ body {
     border-radius: 9px;
     border-width: 1px;
     border-color: slategray;
-    background-color: #bebebe;
+    background-color: #d3d3d3;
     width: 90%;
     height: 30px;
     outline: none;
