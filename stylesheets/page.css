@@ -49,3 +49,22 @@ body {
     border: none;
     outline: none;
 }
+
+/* DEFINITION */
+.definition {
+    border: 1px solid white;
+    margin-top: 15px;
+    text-indent: 5px;
+}
+
+/* SYNONYM */
+.synonym {
+    border: 1px solid white;
+    text-indent: 5px;
+}
+
+/* ANTONYM */
+.antonym {
+    border: 1px solid white;
+    text-indent: 5px;
+}
