@@ -24,7 +24,7 @@ body {
 .title {
     font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
     color: rgb(56,93,139);
-    text-shadow: 1px 1px #bebebe;
+    text-shadow: 0px 1px #bebebe;
     font-size: 45px;
 }
 
@@ -59,4 +59,33 @@ body {
     font-family: Helvetica, Arial, san-serif;
     border: none;
     outline: none;
+}
+
+/* iPhone 6 */
+@media (min-width: 375px) {
+    .logo {
+        margin-top: -30px;
+    }
+}
+
+/* iPhone 6 Plus */
+@media (min-width: 414px) {
+    .logo {
+        margin-top: -20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 70px;
+    }
+
+    .search-one {
+    width: 60%;
+    }
 }
