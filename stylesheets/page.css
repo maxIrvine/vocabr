@@ -68,3 +68,23 @@ body {
     border: 1px solid white;
     text-indent: 7px;
 }
+
+/* iPad */
+@media (min-width: 768px) {
+    /* LOGO */
+    .logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* SEARCH BOX */
+    .searchbox-one {
+        margin-top: -125px;
+        margin-left: 20px;
+    }
+
+    /* DEFINITION */
+    .definition {
+        margin-top: 25px;
+    }
+}
