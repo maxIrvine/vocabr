@@ -1,3 +1,4 @@
+/* BACKGROUND IMAGE */
 .logo {
     width: 100%;
     height: 300px;
@@ -8,7 +9,21 @@
     background-position: center;
 }
 
-/* FIRST SEARCH BOX */
+/* SITE NAME */
+.title-box {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+}
+
+.title {
+    font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
+    color: rgb(56,93,139);
+    text-shadow: 1px 1px lightblue;
+}
+
+
+/* SEARCH BOX */
 .searchbox-one {
     display: flex;
     justify-content: center;
