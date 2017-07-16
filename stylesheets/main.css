@@ -83,10 +83,27 @@ body {
     }
 
     .title {
-        font-size: 70px;
+        font-size: 80px;
     }
 
     .search-one {
     width: 60%;
+    }
+}
+
+/* iPad Pro */
+@media (min-width: 1024px) {
+      .logo {
+        height: 350px;
+        margin-top: 70px;
+        margin-bottom: 0px;
+    }
+
+    .title {
+        font-size: 100px;
+    }
+
+    .search-one {
+    width: 50%;
     }
 }
