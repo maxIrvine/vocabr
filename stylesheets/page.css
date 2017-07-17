@@ -27,27 +27,28 @@ body {
 }
 
 .search-one {
+    border: 2px solid rgb(56,93,139);
     border-radius: 9px;
-    border-width: 1px;
-    border-color: slategray;
     background-color: #d3d3d3;
     width: 80%;
     height: 30px;
     outline: none;
     text-indent: 8px;
+
 }
 
 .submit-one {
     border-top-right-radius: 9px;
     border-bottom-right-radius: 9px;
-    height: 34px;
+    height: 36px;
     margin-left: -50px;
-    background-color: rgb(56,93,139); 
+    background-color: #0099CC; 
     color: white;
     font-size: 13px;
     font-family: Helvetica, Arial, san-serif;
     border: none;
     outline: none;
+    border: 2px solid rgb(56,93,139);
 }
 
 /* DEFINITION */
