@@ -34,7 +34,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 .search-one {
@@ -78,12 +78,13 @@ body {
 /* iPad */
 @media (min-width: 768px) {
     .logo {
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: -10px;
+        margin-bottom: 10px;
     }
 
     .title {
         font-size: 80px;
+        margin-top: 20px;
     }
 
     .search-one {
@@ -95,12 +96,13 @@ body {
 @media (min-width: 1024px) {
     .logo {
         height: 350px;
-        margin-top: 70px;
+        margin-top: -10px;
         margin-bottom: 0px;
     }
 
     .title {
         font-size: 100px;
+        margin-top: 20px;
     }
 
     .search-one {
