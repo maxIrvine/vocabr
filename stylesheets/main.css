@@ -21,11 +21,20 @@ body {
     margin-top: -100px;
 }
 
-.title {
+.title1 {
     font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
     color: rgb(56,93,139);
-    text-shadow: 1px 1px #d3d3d3;
+    /*text-shadow: 1px 1px #d3d3d3;*/
+    /*text-shadow: 1px 1px yellow;*/
     font-size: 45px;
+}
+
+.title2 {
+    font-family: 'Maven Pro', Helvetica, Arial, sans-serif;
+    color: #0099CC;
+    /*text-shadow: 1px 1px #d3d3d3;*/
+    font-size: 45px;
+    /*border: 1px solid black;*/
 }
 
 
@@ -38,27 +47,28 @@ body {
 }
 
 .search-one {
+    border: 2px solid rgb(56,93,139);
     border-radius: 9px;
-    border-width: 1px;
-    border-color: slategray;
     background-color: #d3d3d3;
     width: 90%;
     height: 30px;
     outline: none;
     text-indent: 8px;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 }
 
 .submit-one {
     border-top-right-radius: 9px;
     border-bottom-right-radius: 9px;
-    height: 34px;
+    height: 36px;
     margin-left: -50px;
-    background-color: rgb(56,93,139); 
-    color: white;
-    font-size: 13px;
-    font-family: Helvetica, Arial, san-serif;
+    background-color: #0099CC; /*rgb(56,93,139)*/
+    color: #bebebe;
+    font-size: 15px;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     border: none;
     outline: none;
+    border: 2px solid rgb(56,93,139);
 }
 
 /* iPhone 6 */
