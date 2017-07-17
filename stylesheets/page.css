@@ -7,14 +7,17 @@ body {
 .logo-box {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start; 
+    align-items: flex-start;
+    border: 1px solid white; 
 }
 
 .logo {
     width: 175px;
     height: 175px;
     margin-top: -40px;
-    margin-left: -55px;
+    margin-left: 55px; /*should be -55 */
+    border: 1px solid yellow;
+    margin-right: 50px;
 }
 
 /* SEARCH BOX */

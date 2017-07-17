@@ -6,7 +6,7 @@ function callback(d) {
 }
 
 function getSynonym(word){
-    var url = "https://api.datamuse.com/words?ml=" + word;
+    var url = "https://api.datamuse.com/words?rel_syn=" + word;
     var xmlHttp = new XMLHttpRequest();
     var count = 0;
     xmlHttp.onreadystatechange = function() {
@@ -18,7 +18,6 @@ function getSynonym(word){
     }
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
-    
 }
 
 function printSynonym() {
@@ -28,4 +27,9 @@ function printSynonym() {
         synonyms.push(spot["word"]);
     }
     console.log(synonyms);
+}
+
+function getAntonym(word) {
+    var url = "https://api.datamuse.com/words?rel_ant=" + word;
+    var xmlHttp = new XMLHttpRequest();
 }
