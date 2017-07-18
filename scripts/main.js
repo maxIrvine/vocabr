@@ -6,39 +6,21 @@ function callback(d) {
     data = d;
 }
 
-function getSynAnt(identifier, word){
-    var url = "https://api.datamuse.com/words?rel_" + identifier + "=" + word;
-    var xmlHttp = new XMLHttpRequest();
-    var count = 0;
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.status == 200 && count < 1) {
-            callback(data = JSON.parse(xmlHttp.responseText));
-            if (identifier === 'syn') {
-                printSynAnt("syn");
-                count++;
-            } else {
-                printSynAnt("ant");
-            }
-        }
+function getSyn(word) {
+    var requestUrl = "https://api.datamuse.com/words?ml=" + word;
+    var request = new XMLHttpRequest();
+    request.open('GET', requestUrl);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+        var data = request.response;
+        print(data)
     }
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
 }
 
-function printSynAnt(identifier) {
-    console.log("The type of data is: " + typeof data);
-    for (word in data){
-        var spot = data[word];
-        // console.log(spot);
-        if (identifier === "syn") {
-            synonyms.push(spot["word"]);
-        } else {
-            antonyms.push(spot["word"]);
-        }
+function print(data) {
+    for (obj in data) {
+        synonyms.push(data[obj]["word"]);
     }
-    if (identifier === "syn") {
-        console.log("The synonyms are: " + synonyms);
-    } else {
-        console.log("The antonyms are: " + antonyms);
-    }
+    console.log(synonyms);
 }
