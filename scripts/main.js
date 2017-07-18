@@ -1,26 +1,29 @@
 var data = [];
-var synonyms = [];
-var antonyms = [];
+var lang = {
+    'ml' : [],
+    'ant' : [],
+    'def' : []
+};
 
 function callback(d) {
     data = d;
 }
 
-function getSyn(word) {
-    var requestUrl = "https://api.datamuse.com/words?ml=" + word;
+function getData(identifier, word) {
+    var requestUrl = "https://api.datamuse.com/words?" + identifier + "=" + word;
     var request = new XMLHttpRequest();
     request.open('GET', requestUrl);
     request.responseType = 'json';
     request.send();
     request.onload = function() {
         var data = request.response;
-        print(data)
+        print(identifier, data)
     }
 }
 
-function print(data) {
+function print(identifier, data) {
     for (obj in data) {
-        synonyms.push(data[obj]["word"]);
+        lang[identifier].push(data[obj]["word"]);
     }
-    console.log(synonyms);
+    console.log(lang[identifier]);
 }
