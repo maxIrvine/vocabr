@@ -1,9 +1,5 @@
 var data = [];
-var lang = {
-    'ml' : [],
-    'syn' : [],
-    'def' : []
-};
+var versions = [];
 
 function xmlToJson(xml) {
 	// Create the return object
@@ -56,55 +52,39 @@ function StringToXML(oString) {
 	}
 }
 
-function getStuff(word) {
+function getData(word) {
 	var url = "http://www.dictionaryapi.com/api/v1/references/ithesaurus/xml/" + word + "?key=f9662fe2-1f62-4b25-90bc-8aba215b919c";
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.send();
     request.onload = function() {
         var data = request.response;
-        console.log(data);
 		var newData = StringToXML(data);
-		console.log("The typeof data is: " + typeof newData);
-        // print(identifier, data)
 		var obj = xmlToJson(newData);
-		console.log(obj);
+		obj = obj['entry_list']['entry'];
+		condense(obj);
     }
 }
 
-// function getDataHelper(url, identifier) {
-//     var request = new XMLHttpRequest();
-//     request.open('GET', url);
-//     request.responseType = 'json';
-//     request.send();
-//     request.onload = function() {
-//         var data = request.response;
-//         console.log(data);
-//         print(identifier, data)
-//     }
-// }
-function getDataHelper(url, identifier) {
-    var request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.send();
-    var xml = request.responseXML;
-    request.onload = function() {
-        var data = request.response;
-        console.log(data);
-        print(identifier, data)
-    }
-}
-
-function getData(word) {
-    var urlML = "https://api.datamuse.com/words?ml=" + word;
-    var urlANT = "https://api.datamuse.com/words?rel_syn=" + word;
-    getDataHelper(urlML, 'ml');
-    getDataHelper(urlANT, 'syn');
-}
-
-function print(identifier, data) {
-    for (obj in data) {
-        lang[identifier].push(data[obj]["word"]);
-    }
-    console.log(lang[identifier]);
+function condense(data) {
+	// removes id objects and hw objects
+	for (index in data) {
+		var object1 = data[index];
+		if (!(object1.hasOwnProperty('id')) || !(object1.hasOwnProperty('hw'))){
+			versions.push(object1);
+		}
+	}
+	// remove if sens object is greater than 1
+	for (index in versions) {
+		var object2 = versions[index]["sens"];
+		var objectLen = object2.length;
+		var getFirstObject = object2[0];
+		
+		if (objectLen > 1) {
+			for (var i = 1;i<objectLen;i++) {
+				delete object2[i];
+			}
+		}
+	}
+	console.log(versions);
 }
