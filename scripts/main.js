@@ -1,5 +1,6 @@
 var data = [];
 var synonyms = [];
+var antonyms = [];
 
 function callback(d) {
     data = d;
@@ -12,19 +13,27 @@ function getSynAnt(identifier, word){
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.status == 200 && count < 1) {
             callback(data = JSON.parse(xmlHttp.responseText));
-            printSynonym();
-            count++;
+            if (identifier === 'synonym') {
+                printSynAnt("synonym");
+                count++;
+            } else {
+                printSynAnt("antonym");
+            }
         }
     }
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
 }
 
-function printSynAnt() {
+function printSynAnt(identifier) {
     for (word in data){
         var spot = data[word];
         // console.log(spot);
-        synonyms.push(spot["word"]);
+        if (identifier === "synonym") {
+            synonyms.push(spot["word"]);
+        } else {
+            antonyms.push(spot["word"]);
+        }
     }
     console.log(synonyms);
 }
