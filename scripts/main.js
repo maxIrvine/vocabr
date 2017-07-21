@@ -1,5 +1,33 @@
-var data = [];
-var versions = [];
+var info = [
+	{
+		'fl' : '',
+		'mc' : '',
+		'syn' : '',
+		'near' : '',
+		'ant' : '',
+	},
+	{
+		'fl' : '',
+		'mc' : '',
+		'syn' : '',
+		'near' : '',
+		'ant' : '',
+	},
+	{
+		'fl' : '',
+		'mc' : '',
+		'syn' : '',
+		'near' : '',
+		'ant' : '',
+	},
+	{
+		'fl' : '',
+		'mc' : '',
+		'syn' : '',
+		'near' : '',
+		'ant' : '',
+	}
+];
 
 function xmlToJson(xml) {
 	// Create the return object
@@ -58,15 +86,20 @@ function getData(word) {
     request.open('GET', url);
     request.send();
     request.onload = function() {
-        var data = request.response;
+		var data = [];
+        data = request.response;
 		var newData = StringToXML(data);
 		var obj = xmlToJson(newData);
 		obj = obj['entry_list']['entry'];
-		condense(obj);
+		var final = condense(obj);
+		var info = addToInfo(final);
+		// console.log(info);
+		return info;
     }
 }
 
 function condense(data) {
+	var versions = [];
 	// removes id objects and hw objects
 	for (index in data) {
 		var object1 = data[index];
@@ -87,4 +120,31 @@ function condense(data) {
 		}
 	}
 	console.log(versions);
+	return versions;
+}
+
+function addToInfo(data) {
+	var count = 0;
+	while (count < 4) {
+		// console.log(info[count]);
+		// console.log(data[0]);
+		info[count]['fl'] = data[count]['fl'];
+		info[count]['mc'] = data[count]['sens']['mc'];
+		info[count]['syn'] = data[count]['sens']['syn'];
+		info[count]['near'] = data[count]['sens']['near'];
+		info[count]['ant'] = data[count]['sens']['ant'];
+	}
+	console.log(info);
+}
+
+
+// function applyData(data) {
+
+// }
+
+function main(word){
+	var data = getData(word);
+	console.log(data);
+	// var inf = addToInfo(data);
+	// var appl = applyData(data);
 }
