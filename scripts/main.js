@@ -1,6 +1,9 @@
 var tense = [];
 var def = [];
 var examples = [];
+var synonyms = [];
+var nearAntonyms = [];
+var antonyms = [];
 var suggestions = [];
 
 function StringToXML(oString) {
@@ -58,10 +61,12 @@ function getTense(xml) {
 			tense.push(new XMLSerializer().serializeToString(fl));
 			i++;
 		}
+		getDefinition(xml, len);
+		format("<fl>", tense);
 	}
 	//formats array to not include tag names
-	getDefinition(xml, len);
-	format("<fl>", tense);
+	
+	
 	
 }
 
@@ -86,6 +91,7 @@ function getExamples(xml, len) {
 		i++;
 	}
 	var noTags = format("<vi>", examples);
+	getSynonyms(xml, len);
 	examplesFormat(noTags, len);
 }
 
@@ -106,6 +112,29 @@ function examplesFormat(arr, len) {
 	}
 	console.log(arr);
 	return arr;
+}
+
+function getSynonyms(xml, len) {
+	var i = 0;
+	while (i<len) {
+		var entry = xml.getElementsByTagName("entry")[i];
+		var syn = entry.getElementsByTagName("syn")[0];
+		synonyms.push(new XMLSerializer().serializeToString(syn));
+		i++;
+	}
+	// getNearAntonyms(xml, len);
+	format("<syn>", synonyms);
+}
+
+function getNearAntonyms(xml, len) {
+	var i = 0;
+	while (i<len) {
+		var entry = xml.getElementsByTagName("entry")[i];
+		var nearAnt = entry.getElementsByTagName("near")[0];
+		nearAntonyms.push(new XMLSerializer().serializeToString(nearAnt));
+		i++;
+	}
+	format("<near>", nearAntonyms);
 }
 
 
