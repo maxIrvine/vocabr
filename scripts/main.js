@@ -86,13 +86,13 @@ function getData(word) {
     request.open('GET', url);
     request.send();
     request.onload = function() {
-		var data = [];
-        data = request.response;
-		var newData = StringToXML(data);
-		var obj = xmlToJson(newData);
+		//take in string --> converts to XML --> converts to JSON
+		var obj = xmlToJson(StringToXML(request.response));
+		console.log(obj);
+		//indexes the entery object which contains data
 		obj = obj['entry_list']['entry'];
-		var final = condense(obj);
-		var info = addToInfo(final);
+		//condenses the data and adds to the info array
+		var info = addToInfo(condense(obj));
 		// console.log(info);
 		return info;
     }
