@@ -20,6 +20,12 @@ function search() {
 
 search();
 
+function  addData(div, arr) {
+	arr.forEach(function (data) {
+		div.append(data);
+	})
+}
+
 function StringToXML(oString) {
 	//code for IE
 	if (window.ActiveXObject) { 
@@ -40,8 +46,10 @@ function getData(word) {
     request.onload = function() {
 		//take in string --> converts to XML
 		var obj = StringToXML(request.response);
-		console.log(obj);
+		// console.log(obj);
 		getTense(obj);
+		//window.location() goes here
+		window.location.assign("page.html");
 		return obj;
     }
 }
@@ -78,11 +86,10 @@ function getTense(xml) {
 		}
 		getDefinition(xml, len);
 		format("<fl>", tense);
+		localStorage.setItem("tense", tense);
+		addData($divDefinition ,tense);
 	}
 	//formats array to not include tag names
-	
-	
-	
 }
 
 function getDefinition(xml, len) {
@@ -96,6 +103,7 @@ function getDefinition(xml, len) {
 	}
 	getExamples(xml, len);
 	format("<mc>", def);
+	localStorage.setItem("definition", def);
 }
 
 function getExamples(xml, len) {
@@ -110,6 +118,7 @@ function getExamples(xml, len) {
 	var noTags = format("<vi>", examples);
 	getSynonyms(xml, len);
 	examplesFormat(noTags, len);
+	localStorage.setItem("examples", examples);
 }
 
 function examplesFormat(arr, len) {
@@ -142,6 +151,7 @@ function getSynonyms(xml, len) {
 	}
 	// getNearAntonyms(xml, len);
 	format("<syn>", synonyms);
+	localStorage.setItem("synonyms", synonyms);
 }
 
 function getNearAntonyms(xml, len) {
