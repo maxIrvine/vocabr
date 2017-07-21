@@ -29,6 +29,11 @@ var info = [
 	}
 ];
 
+var tense = [];
+var def = [];
+var examaples = [];
+var suggestions = [];
+
 function xmlToJson(xml) {
 	// Create the return object
 	var obj = {};
@@ -86,16 +91,83 @@ function getData(word) {
     request.open('GET', url);
     request.send();
     request.onload = function() {
-		//take in string --> converts to XML --> converts to JSON
-		var obj = xmlToJson(StringToXML(request.response));
-		console.log(obj);
+		//take in string --> converts to XML
+		var obj = StringToXML(request.response);
+		// console.log(obj);
 		//indexes the entery object which contains data
-		obj = obj['entry_list']['entry'];
+		// obj = obj['entry_list']['entry'];
 		//condenses the data and adds to the info array
-		var info = addToInfo(condense(obj));
-		// console.log(info);
-		return info;
+		// var info = addToInfo(condense(obj));
+		// console.log(obj);
+		// getTense(obj);
+		// var sens1 = obj.getElementsByTagName('fl')[0];
+		// console.log(sens1);
+		// var mc = sens1.getElementsByTagName('mc');
+		// console.log(new XMLSerializer().serializeToString(sens1));
+		console.log(obj);
+		getTense(obj);
+		return obj;
     }
+}
+
+function format(name, arr) {
+	var lenArr = arr.length;
+	var lenName = name.length;
+	var count = 0;
+	while (count < lenArr) {
+		var word = arr[count];
+		var lenWord = word.length;
+		word = word.substring(lenName, lenWord-lenName-1);
+		arr[count] = word;
+		count++;
+	}
+	console.log(arr);
+	return arr;
+}
+
+function getTense(xml) {
+	var i = 0;
+	//checks to see if data exists
+	if (xml.getElementsByTagName('fl')[i] === undefined){
+		//data doesn't exist so check suggested words
+		checkSuggestions(xml);
+	} else {
+		//gets each fl element and pushes it to array as string
+		var len = xml.getElementsByTagName("fl").length;
+		while (i<len) {
+			var fl = xml.getElementsByTagName('fl')[i];
+			tense.push(new XMLSerializer().serializeToString(fl));
+			i++;
+		}
+	}
+	//formats array to not include tag names
+	getDefinition(xml, len);
+	format("<fl>", tense);
+	
+}
+
+function getDefinition(xml, tenseLength) {
+	var i = 0;
+	while (i<tenseLength) {
+		var entry = xml.getElementsByTagName("entry")[i];
+		var mc = entry.getElementsByTagName("mc")[0];
+		def.push(new XMLSerializer().serializeToString(mc));
+		i++;
+	}
+	format("<mc>", def);
+}
+
+function checkSuggestions(xml) {
+	console.log("here");
+	var i = 0;
+	var len = xml.getElementsByTagName("suggestion").length;
+	while (i<len) {
+		var sugest = xml.getElementsByTagName("suggestion")[i];
+		suggestions.push(new XMLSerializer().serializeToString(sugest));
+		i++;
+	}
+	console.log(suggestions);
+	format("<suggestion>", suggestions);
 }
 
 function condense(data) {
