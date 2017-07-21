@@ -47,7 +47,7 @@ function getData(word) {
 		//take in string --> converts to XML
 		var obj = StringToXML(request.response);
 		// console.log(obj);
-		getTense(obj);
+		getTense(obj, word);
 		//window.location() goes here
 		window.location.assign("page.html");
 		return obj;
@@ -69,7 +69,9 @@ function format(name, arr) {
 	return arr;
 }
 
-function getTense(xml) {
+function getTense(xml, word) {
+	var w = word;
+	console.log(w);
 	var tense = [];
 	var i = 0;
 	//checks to see if data exists
@@ -84,15 +86,17 @@ function getTense(xml) {
 			tense.push(new XMLSerializer().serializeToString(fl));
 			i++;
 		}
-		getDefinition(xml, len);
+		getDefinition(xml, len, w);
+		console.log(word);
 		format("<fl>", tense);
-		localStorage.setItem("tense", tense);
-		addData($divDefinition ,tense);
+		localStorage.setItem(w + "-" + "tense", tense);
+		addData($divDefinition,tense);
 	}
 	//formats array to not include tag names
 }
 
-function getDefinition(xml, len) {
+function getDefinition(xml, len, w) {
+	var word = w;
 	var def = [];
 	var i = 0;
 	while (i<len) {
@@ -101,12 +105,12 @@ function getDefinition(xml, len) {
 		def.push(new XMLSerializer().serializeToString(mc));
 		i++;
 	}
-	getExamples(xml, len);
+	getExamples(xml, len, word);
 	format("<mc>", def);
-	localStorage.setItem("definition", def);
+	localStorage.setItem(word + "-" + "definition", def);
 }
 
-function getExamples(xml, len) {
+function getExamples(xml, len, word) {
 	var examples = [];
 	var i = 0;
 	while (i<len) {
@@ -116,9 +120,9 @@ function getExamples(xml, len) {
 		i++;
 	}
 	var noTags = format("<vi>", examples);
-	getSynonyms(xml, len);
+	getSynonyms(xml, len, word);
 	examplesFormat(noTags, len);
-	localStorage.setItem("examples", examples);
+	localStorage.setItem(word + "-" + "examples", examples);
 }
 
 function examplesFormat(arr, len) {
@@ -140,7 +144,7 @@ function examplesFormat(arr, len) {
 	return arr;
 }
 
-function getSynonyms(xml, len) {
+function getSynonyms(xml, len, word) {
 	var synonyms = [];
 	var i = 0;
 	while (i<len) {
@@ -151,7 +155,7 @@ function getSynonyms(xml, len) {
 	}
 	// getNearAntonyms(xml, len);
 	format("<syn>", synonyms);
-	localStorage.setItem("synonyms", synonyms);
+	localStorage.setItem(word + "-" + "synonyms", synonyms);
 }
 
 function getNearAntonyms(xml, len) {
