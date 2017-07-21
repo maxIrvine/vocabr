@@ -178,4 +178,5 @@ function checkSuggestions(xml) {
 	}
 	// console.log(suggestions);
 	format("<suggestion>", suggestions);
+	localStorage.setItem("suggestions", suggestions);
 }

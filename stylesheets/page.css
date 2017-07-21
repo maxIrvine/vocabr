@@ -62,6 +62,17 @@ body {
     padding-bottom: 20px;
 }
 
+/* suggestion */
+.suggestion {
+    border: 1px solid white;
+    margin-top: 15px;
+    text-indent: 7px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
 /* SYNONYM */
 .synonym {
     border: 1px solid white;
