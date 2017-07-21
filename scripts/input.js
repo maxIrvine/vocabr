@@ -1,14 +1,30 @@
 var $searchButton = $('[data-button="search"]');
 var $searchField = $('[data-input="search-bar"]');
 var $form = $('[data-form="info"]');
+var $divDefinition = $('[data-field="definition"]');
+var $divSynonym = $('[data-field="synonym"]');
+var $divAntonym = $('[data-field="antonym"]');
 
-//function returns whatever is entered in search bar
-//will need to integrate to main.js or use global variables
-function search() {
-    $form.on("submit", function(event) {
-        event.preventDefault();
-        console.log($searchField.val());
-    });
+var synonyms = [];
+var examples = [];
+var definitions = [];
+var tense = [];
+
+function getData() {
+    synonyms = localStorage.getItem("synonyms");
+    examples = localStorage.getItem("examples");
+    definition = localStorage.getItem("definition");
+    tense = localStorage.getItem("tense");
 }
 
-search();
+function addData(div, arr) {
+    arr.forEach(function (data) {
+		div.append(data);
+	});
+}
+
+function main() {
+    getData();
+    addData($divDefinition, definitions);
+    addData($divSynonym, synonyms);
+}
