@@ -166,8 +166,30 @@ function getExamples(xml, len) {
 		examples.push(new XMLSerializer().serializeToString(vi));
 		i++;
 	}
-	console.log(examples);
+	var noTags = format("<vi>", examples);
+	examplesFormat(noTags, len);
 }
+
+function examplesFormat(arr, len) {
+	var i = 0;
+	while (i<len) {
+		var wordStart = arr[i];
+		var wordMiddle = arr[i];
+		var wordEnd = arr[i];
+		var lenWord = wordStart.length;
+		var indexStart = wordStart.search("<it>");
+		var indexEnd = wordStart.search("</it>");
+		wordStart = wordStart.substring(0, indexStart);
+		wordMiddle = wordMiddle.substring(indexStart+4, indexEnd);
+		wordEnd = wordEnd.substring(indexEnd+5, lenWord);
+		arr[i] = wordStart + wordMiddle + wordEnd;
+		i++;
+	}
+	console.log(arr);
+	return arr;
+}
+
+
 
 function checkSuggestions(xml) {
 	console.log("here");
