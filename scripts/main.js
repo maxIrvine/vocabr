@@ -1,10 +1,21 @@
-var tense = [];
-var def = [];
-var examples = [];
-var synonyms = [];
+var $searchButton = $('[data-button="search"]');
+var $searchField = $('[data-input="search-bar"]');
+var $form = $('[data-form="info"]');
+
 var nearAntonyms = [];
 var antonyms = [];
 var suggestions = [];
+
+//function returns whatever is entered in search bar
+//will need to integrate to main.js or use global variables
+function search() {
+    $form.on("submit", function(event) {
+        event.preventDefault();
+        getData($searchField.val());
+    });
+}
+
+
 
 function StringToXML(oString) {
 	//code for IE
@@ -48,6 +59,7 @@ function format(name, arr) {
 }
 
 function getTense(xml) {
+	var tense = [];
 	var i = 0;
 	//checks to see if data exists
 	if (xml.getElementsByTagName('fl')[i] === undefined){
@@ -71,6 +83,7 @@ function getTense(xml) {
 }
 
 function getDefinition(xml, len) {
+	var def = [];
 	var i = 0;
 	while (i<len) {
 		var entry = xml.getElementsByTagName("entry")[i];
@@ -83,6 +96,7 @@ function getDefinition(xml, len) {
 }
 
 function getExamples(xml, len) {
+	var examples = [];
 	var i = 0;
 	while (i<len) {
 		var entry = xml.getElementsByTagName("entry")[i];
@@ -115,6 +129,7 @@ function examplesFormat(arr, len) {
 }
 
 function getSynonyms(xml, len) {
+	var synonyms = [];
 	var i = 0;
 	while (i<len) {
 		var entry = xml.getElementsByTagName("entry")[i];
