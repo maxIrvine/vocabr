@@ -31,7 +31,7 @@ var info = [
 
 var tense = [];
 var def = [];
-var examaples = [];
+var examples = [];
 var suggestions = [];
 
 function xmlToJson(xml) {
@@ -146,15 +146,27 @@ function getTense(xml) {
 	
 }
 
-function getDefinition(xml, tenseLength) {
+function getDefinition(xml, len) {
 	var i = 0;
-	while (i<tenseLength) {
+	while (i<len) {
 		var entry = xml.getElementsByTagName("entry")[i];
 		var mc = entry.getElementsByTagName("mc")[0];
 		def.push(new XMLSerializer().serializeToString(mc));
 		i++;
 	}
+	getExamples(xml, len);
 	format("<mc>", def);
+}
+
+function getExamples(xml, len) {
+	var i = 0;
+	while (i<len) {
+		var entry = xml.getElementsByTagName("entry")[i];
+		var vi = entry.getElementsByTagName("vi")[0];
+		examples.push(new XMLSerializer().serializeToString(vi));
+		i++;
+	}
+	console.log(examples);
 }
 
 function checkSuggestions(xml) {
