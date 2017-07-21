@@ -23,14 +23,13 @@ function getData() {
 
 function addData(div, arr) {
     arr.forEach(function (data) {
-        console.log("here");
-		div.append(data);
+		div.append(data + ", ");
 	});
 }
 
 function main() {
     getData();
-    addData($divDefinition, definitions);
+    addData($divDefinition, definition);
     addData($divSynonym, synonyms);
 }
 
