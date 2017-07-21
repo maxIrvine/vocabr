@@ -15,7 +15,7 @@ function search() {
     });
 }
 
-
+search();
 
 function StringToXML(oString) {
 	//code for IE
@@ -155,7 +155,7 @@ function getNearAntonyms(xml, len) {
 
 
 function checkSuggestions(xml) {
-	console.log("here");
+	// console.log("here");
 	var i = 0;
 	var len = xml.getElementsByTagName("suggestion").length;
 	while (i<len) {
@@ -163,6 +163,6 @@ function checkSuggestions(xml) {
 		suggestions.push(new XMLSerializer().serializeToString(sugest));
 		i++;
 	}
-	console.log(suggestions);
+	// console.log(suggestions);
 	format("<suggestion>", suggestions);
 }
