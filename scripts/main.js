@@ -8,6 +8,7 @@ var $divAntonym = $('[data-field="antonym"]');
 var nearAntonyms = [];
 var antonyms = [];
 var suggestions = [];
+var word;
 
 //function returns whatever is entered in search bar
 //will need to integrate to main.js or use global variables
@@ -39,11 +40,13 @@ function StringToXML(oString) {
 }
 
 function getData(word) {
+	word = word;
 	var url = "http://www.dictionaryapi.com/api/v1/references/ithesaurus/xml/" + word + "?key=f9662fe2-1f62-4b25-90bc-8aba215b919c";
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.send();
     request.onload = function() {
+		localStorage.clear();
 		//take in string --> converts to XML
 		var obj = StringToXML(request.response);
 		// console.log(obj);
@@ -89,7 +92,7 @@ function getTense(xml, word) {
 		getDefinition(xml, len, w);
 		console.log(word);
 		format("<fl>", tense);
-		localStorage.setItem(w + "-" + "tense", tense);
+		localStorage.setItem("tense", tense);
 		addData($divDefinition,tense);
 	}
 	//formats array to not include tag names
@@ -107,7 +110,7 @@ function getDefinition(xml, len, w) {
 	}
 	getExamples(xml, len, word);
 	format("<mc>", def);
-	localStorage.setItem(word + "-" + "definition", def);
+	localStorage.setItem("definition", def);
 }
 
 function getExamples(xml, len, word) {
@@ -122,7 +125,7 @@ function getExamples(xml, len, word) {
 	var noTags = format("<vi>", examples);
 	getSynonyms(xml, len, word);
 	examplesFormat(noTags, len);
-	localStorage.setItem(word + "-" + "examples", examples);
+	localStorage.setItem("examples", examples);
 }
 
 function examplesFormat(arr, len) {
@@ -155,7 +158,7 @@ function getSynonyms(xml, len, word) {
 	}
 	// getNearAntonyms(xml, len);
 	format("<syn>", synonyms);
-	localStorage.setItem(word + "-" + "synonyms", synonyms);
+	localStorage.setItem("synonyms", synonyms);
 }
 
 function getNearAntonyms(xml, len) {
