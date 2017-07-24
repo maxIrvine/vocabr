@@ -4,9 +4,10 @@ var $form = $('[data-form="info"]');
 var $divDefinition = $('[data-field="definition"]');
 var $divSynonym = $('[data-field="synonym"]');
 var $divAntonym = $('[data-field="antonym"]');
+var $divTense = $('[data-field="tense"]');
 var $divSuggestion = $('[data-field="suggestion"]');
 
-function getData(synonyms, examples, definitions, tense) {
+function getData() {
     synonyms = localStorage.getItem("synonyms").toString();
     synonyms = synonyms.split(",");
     examples = localStorage.getItem("examples").toString();
@@ -24,17 +25,14 @@ function addData(div, arr) {
 }
 
 function main() {
-    var synonyms = [];
-    var examples = [];
-    var definitions = [];
-    var tense = [];
-    var suggestions = [];
     if (localStorage.getItem("suggestions") !== null) {
+        $divSuggestion.addClass("show-suggestions");
         suggestions = localStorage.getItem("suggestions").toString();
         suggestions = suggestions.split(",");
         addData($divSuggestion, suggestions);
     } else {
-        getData(synonyms, examples, definitions, tense);
+        getData();
+        addData($divTense, tense);
         addData($divDefinition, definition);
         addData($divSynonym, synonyms);
     }
