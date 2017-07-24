@@ -7,7 +7,7 @@ var $divAntonym = $('[data-field="antonym"]');
 var $divTense = $('[data-field="tense"]');
 var $divSuggestion = $('[data-field="suggestion"]');
 
-function getData() {
+function getDataDisplay() {
     synonyms = localStorage.getItem("synonyms").toString();
     synonyms = synonyms.split(",");
     examples = localStorage.getItem("examples").toString();
@@ -31,7 +31,7 @@ function main() {
         suggestions = suggestions.split(",");
         addData($divSuggestion, suggestions);
     } else {
-        getData();
+        getDataDisplay();
         addData($divTense, tense);
         addData($divDefinition, definition);
         addData($divSynonym, synonyms);
