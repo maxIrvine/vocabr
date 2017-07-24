@@ -19,9 +19,10 @@ function getDataDisplay() {
 }
 
 function addData(div, arr) {
-    arr.forEach(function (data) {
-		div.append(data + ", ");
-	});
+    var len = arr.length;
+    for (var i=0;i<len;i++) {
+        div.append(" (" + (i+1) + ")" + arr[i]);
+    }
 }
 
 function main() {
