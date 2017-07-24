@@ -8,7 +8,6 @@ var $divAntonym = $('[data-field="antonym"]');
 var nearAntonyms = [];
 var antonyms = [];
 var suggestions = [];
-var word;
 
 //function returns whatever is entered in search bar
 //will need to integrate to main.js or use global variables
@@ -40,7 +39,6 @@ function StringToXML(oString) {
 }
 
 function getData(word) {
-	word = word;
 	var url = "http://www.dictionaryapi.com/api/v1/references/ithesaurus/xml/" + word + "?key=f9662fe2-1f62-4b25-90bc-8aba215b919c";
     var request = new XMLHttpRequest();
     request.open('GET', url);
