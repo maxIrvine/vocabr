@@ -95,6 +95,7 @@ function getTense(xml, word) {
 		console.log(word);
 		format("<fl>", tense);
 		localStorage.setItem("tense", tense);
+		localStorage.setItem("word", w);
 		addData($divDefinition,tense);
 	}
 	//formats array to not include tag names

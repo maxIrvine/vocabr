@@ -2,10 +2,12 @@ var $searchButton = $('[data-button="search"]');
 var $searchField = $('[data-input="search-bar"]');
 var $form = $('[data-form="info"]');
 var $divDefinition = $('[data-field="definition"]');
+var $divExamples = $('[data-field="examples"]');
 var $divSynonym = $('[data-field="synonym"]');
 var $divAntonym = $('[data-field="antonym"]');
 var $divTense = $('[data-field="tense"]');
 var $divSuggestion = $('[data-field="suggestion"]');
+var $word = $('[data-field="word"]');
 
 function getDataDisplay() {
     synonyms = localStorage.getItem("synonyms").toString();
@@ -35,7 +37,9 @@ function main() {
     } else {
         getDataDisplay();
         addData($divTense, tense);
+		$word.append(localStorage.getItem("word"));
         addData($divDefinition, definition);
+        addData($divExamples, examples);
         addData($divSynonym, synonyms);
     }
 }
