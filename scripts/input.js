@@ -31,6 +31,7 @@ function main() {
         suggestions = localStorage.getItem("suggestions").toString();
         suggestions = suggestions.split(",");
         addData($divSuggestion, suggestions);
+        localStorage.removeItem("suggestions");
     } else {
         getDataDisplay();
         addData($divTense, tense);
