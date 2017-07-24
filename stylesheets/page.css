@@ -52,8 +52,28 @@ body {
     border: 2px solid rgb(56,93,139);
 }
 
+/* WORD */
+.word {
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
 /* DEFINITION */
 .definition {
+    border: 3px solid rgb(56,93,139);
+    text-indent: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 20px;
+}
+
+/* EXAMPLES */
+.examples {
     border: 3px solid rgb(56,93,139);
     text-indent: 7px;
     padding-left: 20px;
@@ -70,7 +90,6 @@ body {
     text-indent: 7px;
     margin-left: 8px;
     margin-right: 8px;
-    margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -129,9 +148,11 @@ body {
         margin-left: 90px;
     }
 
-    /* TENSE */
-    .tense {
+    /* WORD */
+    .word {
         margin-top: 25px;
+        margin-left: 40px;
+        font-size: 55px;
     }
 
     /* SHOW SUGGESTIONS */
@@ -164,9 +185,11 @@ body {
         width: 60%;
     }
 
-    /* TENSE */
-    .tense {
+    /* WORD */
+    .word {
         margin-top: 50px;
+        margin-left: 45px;
+        font-size: 65px;
     }
 
     /* SHOW SUGGESTIONS */
@@ -196,9 +219,11 @@ body {
         width: 50%;
     }
 
-    /* TENSE */
-    .tense {
+    /* WORD */
+    .word {
         margin-top: 65px;
+        margin-left: 40px;
+        font-size: 65px;
     }
 
     /* SHOW SUGGESTIONS */
@@ -227,9 +252,11 @@ body {
         width: 40%;
     }
 
-    /* TENSE */
-    .tense {
+    /* WORD */
+    .word {
         margin-top: 70px;
+        margin-left: 40px;
+        font-size: 65px;
     }
 
     /* SHOW SUGGESTIONS */
@@ -258,9 +285,11 @@ body {
         width: 35%;
     }
 
-    /* TENSE */
-    .tense {
+    /* WORD */
+    .word {
         margin-top: 80px;
+        margin-left: 50px;
+        font-size: 65px;
     }
 
     /* SHOW SUGGESTIONS */
