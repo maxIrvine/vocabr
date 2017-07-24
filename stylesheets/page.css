@@ -85,8 +85,11 @@ body {
 .show-suggestions {
     display: flex;
     align-items: center;
-    border: 1px solid white;
-    margin-top: 90px;
+    border: 3px solid rgb(56,93,139);
+    margin-top: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -100,6 +103,10 @@ body {
     padding-bottom: 20px;
     margin-left: 8px;
     margin-right: 8px;
+}
+
+.font {
+    font-size: 20px;
 }
 
 /* ANTONYM */
@@ -125,6 +132,15 @@ body {
     /* TENSE */
     .tense {
         margin-top: 25px;
+    }
+
+    /* SHOW SUGGESTIONS */
+    .show-suggestions {
+        margin-top: 25px;
+    }
+
+    .font {
+        font-size: 25px;
     }
 }
 
@@ -152,6 +168,12 @@ body {
     .tense {
         margin-top: 50px;
     }
+
+    /* SHOW SUGGESTIONS */
+    .show-suggestions {
+        margin-top: 50px;
+    }
+
 }
 
 /* Browser Medium */
@@ -176,6 +198,11 @@ body {
 
     /* TENSE */
     .tense {
+        margin-top: 65px;
+    }
+
+    /* SHOW SUGGESTIONS */
+    .show-suggestions {
         margin-top: 65px;
     }
 }
@@ -204,6 +231,11 @@ body {
     .tense {
         margin-top: 70px;
     }
+
+    /* SHOW SUGGESTIONS */
+    .show-suggestions {
+        margin-top: 70px;
+    }
 }
 
 /* Browser Extreme */
@@ -228,6 +260,11 @@ body {
 
     /* TENSE */
     .tense {
+        margin-top: 80px;
+    }
+
+    /* SHOW SUGGESTIONS */
+    .show-suggestions {
         margin-top: 80px;
     }
 }
